@@ -2,7 +2,6 @@
 A simple web-based coin flip game where the user plays against the computer.
 
 Features:
-
 #Interactive UI: Buttons for user selection with visual feedback.
 
 #Randomized Computer Choice: The computer makes a random choice of heads or tails.
