@@ -1,6 +1,12 @@
 const coin = ['heads', 'tails'];
+const score = JSON.parse(localStorage.getItem('scoreFlipCoin')) ||
+    { wins: 0, losses: 0 }
 let userMove;
 let started = false;
+console.log(score);
+
+$('.wins').html(`wins: ${score.wins}`);
+$('.losses').html(`losses: ${score.losses}`);
 
 $('button').click(function () {
     userMove = $(this).attr('id');
@@ -20,16 +26,34 @@ function showComputerMove(computer) {
 }
 
 function compareMoves(computer) {
+
+    // userMove === computer ? $('.title').html('you won!') : $('.title').html('you lost!');
+
+
     if (userMove === computer) {
-        $('p').html('you won!');
+        $('.title').html('you won!');
+        score.wins++;
     } else {
-        $('p').html('you lost!');
+        $('.title').html('you lost!');
+        score.losses++;
     }
+
+    updateScore();
+    saveScore();
+}
+
+function updateScore() {
+    $('.wins').html(`wins: ${score.wins}`);
+    $('.losses').html(`losses: ${score.losses}`);
+}
+
+function saveScore() {
+    localStorage.setItem('scoreFlipCoin', JSON.stringify(score));
 }
 
 function resetGame() {
     started = false;
-    $('p').html('flip the coin!');
+    $('.title').html('flip the coin!');
     $('.computer-move').html("the computer's choice");
 }
 
@@ -37,3 +61,8 @@ function buttonAnimate(user) {
     $(`#${user}`).fadeOut().fadeIn();
 }
 
+$('.reset-score').click(function () {
+    localStorage.removeItem('scoreFlipCoin');
+    location.reload();
+
+});
