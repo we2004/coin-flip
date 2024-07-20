@@ -2,6 +2,7 @@
 A simple web-based coin flip game where the user plays against the computer.
 
 Features
+
  User Interaction: Users can choose between "heads" or "tails" by clicking a button.
  Randomized Computer Move: The computer randomly selects "heads" or "tails" for each round.
  Score Tracking: The game tracks wins and losses and displays the scores, which are stored in localStorage for persistence.
@@ -11,11 +12,13 @@ Features
 
 
 Technologies Used
+
  HTML/CSS: For structuring and styling the game interface.
  JavaScript/jQuery: For game logic, DOM manipulation, and handling user interactions.
  localStorage: For persisting the game score across sessions.
 
 How It Works
+
  1 The user selects "heads" or "tails" by clicking the corresponding button.
  2 The computer randomly chooses "heads" or "tails".
  3 The game compares the user's choice with the computer's choice.
